@@ -1,0 +1,148 @@
+body {
+  color: #0b0b0b;
+  font-family: "メイリオ", Meiryo, "游ゴシック体", "游ゴシック Medium", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", sans-serif;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+}
+
+.ServiceArea_Top_Main {
+  position: relative;
+  min-height: 360px;
+  z-index: 20;
+  width: 100%;
+}
+
+.ServiceArea_Links {
+  position: relative;
+  height: 600px;
+}
+
+.ServiceArea_Group {
+  display: inline-block;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 10px;
+  position: absolute;
+}
+
+.ServiceArea_Group_Name {
+  font-weight: bold;
+}
+
+.ServiceArea_Group_Border {
+  height: 2px;
+  background-color: #dadada;
+  border: none;
+  margin-top: 0px;
+}
+
+.ServiceArea_List {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ServiceArea_Prefectures {
+  margin-right: 2px;
+  margin-left: 2px;
+}
+.ServiceArea_Prefectures > button {
+  display: inline-block;
+  /* width: 72px; */
+  margin: 4px 2px;
+  padding: 0.3em 0.5em;
+  text-decoration: none;
+  color: #00ada9;
+  font-size: 11px;
+  background-color: #FFFFFF;
+  border: solid 1px #00ada9;
+  border-radius: 3px;
+  transition: .4s;
+  outline: none;
+}
+.ServiceArea_Prefectures > button:hover,
+.ServiceArea_Prefectures > button:focus {
+  background: #00ada9;
+  color: #fff;
+}
+
+#ServiceArea_Myanmar {
+    width: 555px;
+    height: 555px;
+    display: block;
+    position: absolute;
+    z-index: -10;
+    top: 34px;
+    left: 30%;
+  }
+
+#ServiceArea_Kachin {
+    right: 456px;
+    top: 10px;
+  }
+  #ServiceArea_Shan {
+    right: 401px;
+    top: 100px;
+  }
+  #ServiceArea_Kayah {
+    right: 347px;
+    top: 185px;
+  }
+
+  #ServiceArea_Kayin {
+    right: 325px;
+    bottom: 222px;
+  }
+
+  #ServiceArea_Mandalay {
+    left: 325px;
+    bottom: 200px;
+  }
+
+  #ServiceArea_Bago {
+    right: 409px;
+    bottom: 100px;
+  }
+
+  #ServiceArea_Sagaing {
+    left: 393px;
+    top: 7px;
+  }
+
+  #ServiceArea_Magway {
+    left: 282px;
+    top: 190px;
+  }
+
+  #ServiceArea_Rakhine {
+    left: 379px;
+    bottom: 100px;
+  }
+
+  #ServiceArea_Ayeyarwady {
+    left: 422px;
+    bottom: -15px;
+  }
+
+  #ServiceArea_Yangon {
+    left: 493px;
+    bottom: -117px;
+  }
+
+  #ServiceArea_Tanintharyi {
+    right: 553px;
+    bottom: -90px;
+  }
+
+  #ServiceArea_Mon {
+    right: 412px;
+    bottom: -10px;
+  }
+
+  #ServiceArea_Chin {
+    left: 340px;
+    top: 103px;
+  }
+
