@@ -7,11 +7,54 @@ body {
   word-break: break-all;
 }
 
+.l_container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 96rem;
+}
+
+.l_container_areamap {
+  width: 960px;
+}
+
 .ServiceArea_Top_Main {
   position: relative;
   min-height: 360px;
   z-index: 20;
   width: 100%;
+}
+
+.ServiceArea_Section {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20pt;
+}
+
+.ServiceArea_Head {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.ServiceArea_Head_Result {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.ServiceArea_Input_Comment {
+  text-decoration: none;
+  color: #b4b4b4;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+
+.ServiceArea_Sub_Border {
+  height: 2px;
+  background-color: #f3f3f3;
+  border: none;
 }
 
 .ServiceArea_Links {
@@ -55,7 +98,7 @@ body {
   padding: 0.3em 0.5em;
   text-decoration: none;
   color: #00ada9;
-  font-size: 11px;
+  font-size: 13px;
   background-color: #FFFFFF;
   border: solid 1px #00ada9;
   border-radius: 3px;
@@ -66,6 +109,110 @@ body {
 .ServiceArea_Prefectures > button:focus {
   background: #00ada9;
   color: #fff;
+}
+
+/* service area detail */
+
+.AreaMap {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin: 20px 0;
+}
+
+.ServiceArea_Menu {
+  width: 100%;
+  margin-top: 30px;
+  list-style:none;
+	margin:0;
+  padding:0;
+  cursor: pointer;
+}
+.ServiceArea_Menu ul, .ServiceArea_Menu li {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+.ServiceArea_Menu li {
+	float:left;
+  width:118px;
+  position:relative;
+}
+
+.ServiceArea_Menu li a {
+  background:#ffffff;
+  border: 1px solid #00ada9;
+	text-align:center;
+	font-size:12px;
+	display:block;
+	text-decoration:none;
+	color:#00ada9;
+	padding:10px 0;
+	position:relative;
+}
+
+.ServiceArea_Menu li {
+  margin-right: 2px;
+}
+
+.ServiceArea_Menu > li > a {
+  text-align: center;
+  padding-right: 10px;
+  margin-top: 2px;
+}
+
+.ServiceArea_Menu > li:first-child a{
+	border-left:1px solid #00ada9;
+}
+
+.ServiceArea_Sub_Menu {
+	position:absolute;
+	z-index:10;
+  top:39px;
+  display:none;
+}
+
+.ServiceArea_Sub_Menu li a{
+	float:none;
+	background:#ffffff;
+  /* border-right:none; */
+  border-left: 1px solid #00ada9;
+  border-bottom: 1px solid #00ada9;
+  border-top: none;
+	display:block;
+}
+
+.ServiceArea_Sub_Menu li a:hover {
+  background:#C0ECEB;
+  color: #00ada9;
+  opacity: 1;
+}
+
+.ServiceArea_Menu li:hover ul.ServiceArea_Sub_Menu {
+  display:block;
+}
+
+
+#ZMap {
+  width: 100%;
+  height: 100%;
+}
+
+#map-loading-overlay {
+	position: absolute;
+	top: 0;
+	z-index: 9;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.3);
+}
+
+#map-loading-spinner {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+	color: rgb(255, 255, 255);
 }
 
 #ServiceArea_Myanmar {
@@ -83,22 +230,22 @@ body {
     top: 10px;
   }
   #ServiceArea_Shan {
-    right: 401px;
-    top: 100px;
+    right: 381px;
+    top: 110px;
   }
   #ServiceArea_Kayah {
     right: 347px;
-    top: 185px;
+    top: 205px;
   }
 
   #ServiceArea_Kayin {
-    right: 325px;
-    bottom: 222px;
+    right: 355px;
+    bottom: 190px;
   }
 
   #ServiceArea_Mandalay {
     left: 325px;
-    bottom: 200px;
+    bottom: 210px;
   }
 
   #ServiceArea_Bago {
@@ -118,17 +265,17 @@ body {
 
   #ServiceArea_Rakhine {
     left: 379px;
-    bottom: 100px;
+    bottom: 110px;
   }
 
   #ServiceArea_Ayeyarwady {
     left: 422px;
-    bottom: -15px;
+    bottom: 10px;
   }
 
   #ServiceArea_Yangon {
     left: 493px;
-    bottom: -117px;
+    bottom: -95px;
   }
 
   #ServiceArea_Tanintharyi {
@@ -138,7 +285,7 @@ body {
 
   #ServiceArea_Mon {
     right: 412px;
-    bottom: -10px;
+    bottom: 10px;
   }
 
   #ServiceArea_Chin {
@@ -146,3 +293,18 @@ body {
     top: 103px;
   }
 
+  .arrow{
+    width: 6px;
+    height: 6px;
+    fill: #00ada9;
+    position: absolute;
+    top: 11px;
+    right: 12px;
+    border: 2px solid;
+    border-color: transparent transparent #00ada9 #00ada9;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+    transform: rotate(-45deg);
+  }

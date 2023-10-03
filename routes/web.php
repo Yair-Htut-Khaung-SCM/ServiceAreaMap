@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/serviceareatop', function () {
     return view('ServiceArea.page-serviceareamaptop');
 });
+
+Route::get('/serviceareatop/serviceareadetail', function () {
+    return view('ServiceArea.page-serviceareamap');
+});
