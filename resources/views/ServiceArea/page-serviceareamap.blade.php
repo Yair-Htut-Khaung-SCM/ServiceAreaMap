@@ -1,25 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ServiceAreaDetail</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <?php
-    if (getenv('APP_ENV') === 'local') {
-        $_GOOGLE_MAP_API_KEY = 'AIzaSyCLWMCSlaM3ZNyC4lswtoqfdGDnTZ5wv2Q';
-    } else {
-        $_GOOGLE_MAP_API_KEY = 'AIzaSyAjft-0tqg2e_oHJaQO-0C31PguYRF4V9g';
-    }
-?>
-<script
-  src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=<?php echo $_GOOGLE_MAP_API_KEY; ?>&v=weekly"
-  defer
-></script>
+@extends('layouts.app')
 
-</head>
-<body>
+@section('content')
     <div class="m_sec">
 
         <div class="l_container l_container_areamap">
@@ -155,10 +136,26 @@
                     </div>
                 </div>
             </div>
+            <div class="Map_Legend">
+                <ul>
+                    <li>
+                        <div class="Map_Legend_Item">
+                            <div class="Map_Legend_Color"></div>
+                            <div class="Map_Legend_Label">Near the reception limit</div>
+
+                            <div id="legend2" class="Map_Legend_Color Map_Legend_Color--type2"></div>
+                            <div class="Map_Legend_Label">Stable reception</div>
+
+                            <div id="legend4" class="Map_Legend_Color Map_Legend_Color--type4"></div>
+                            <div class="Map_Legend_Label">Stable reception (sea)</div>
+
+                            <div id="legend3" class="Map_Legend_Color Map_Legend_Color--type3"></div>
+                            <div class="Map_Legend_Label">Reception possible (sea)</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
 
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{ asset('js/serviceareamap.js') }}"></script>
-</body>
-</html>
+@endsection

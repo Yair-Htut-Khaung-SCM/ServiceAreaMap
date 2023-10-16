@@ -8,6 +8,7 @@ secretBaseUrl = API_PROTOCOL + '//' + API_HOST;
 const CSV_PATH = '/map/mesh-list.json';
 const GET_CSV_URL = secretBaseUrl + CSV_PATH;
 const GOOGLE_MAP_API_KEY = 'AIzaSyCLWMCSlaM3ZNyC4lswtoqfdGDnTZ5wv2Q';
+var paramMinZoom = 12;
 
 const SearchType = {
   zipcode: 1,
@@ -18,7 +19,7 @@ const SearchType = {
 const ZoomLevel = {
   tod: 11,
   shk: 11,
-  other: 14
+  other: 13
 };
 
 /**
@@ -329,6 +330,19 @@ window.initMap = function () {
     maxZoom: 15,
     minZoom: 5
   });
+
+  const imageMapType = new google.maps.ImageMapType({
+    getTileUrl: function (coord, zoom) {
+      if (zoom < paramMinZoom) return null
+
+      return `http://127.0.0.1:8000/storage/map/tile_images/${zoom}/${coord.x}/${coord.y}.png`;
+    },
+    tileSize: new google.maps.Size(256, 256),
+    maxZoom: 15,
+    minZoom: 5
+  });
+
+  myMap.overlayMapTypes.push(imageMapType);
 
   areaMapGetRequest(GET_CSV_URL, function (data) {
       meshAreaData = data;

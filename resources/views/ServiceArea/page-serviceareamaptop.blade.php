@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ServiceArea_Myanmar</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
     <div class="ServiceArea_Top_Main">
 
         <img id="ServiceArea_Myanmar" src="img/serviceareamap/ServiceArea_Myanmar.png" alt="" />
@@ -157,7 +150,4 @@
         </div>
 
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{ asset('js/serviceareamaptop.js') }}"></script>
-</body>
-</html>
+@endsection

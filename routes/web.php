@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,12 @@ Route::get('/', function () {
 
 Route::get('/serviceareatop', function () {
     return view('ServiceArea.page-serviceareamaptop');
-});
+})->name('ServiceArea.page-serviceareamap');
 
 Route::get('/serviceareatop/serviceareadetail', function () {
     return view('ServiceArea.page-serviceareamap');
 });
+
+//アップロード
+Route::get('/upload', [UploadController::class, 'index'])->name('upload.index');
+Route::post('/mesh-csv-upload', [UploadController::class, 'meshcsv'])->name('upload.meshcsv');
