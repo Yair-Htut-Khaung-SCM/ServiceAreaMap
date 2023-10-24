@@ -45,7 +45,6 @@ function latlonToMesh(lat, lng) {
 
 
 
-// console.log(meshCode);
 
 // One point lat lng
 function convertToMeshCode() {
@@ -126,7 +125,7 @@ function convertMultiToMeshCode() {
     y_end[0] = `${parseInt(yEndMesh.substring(0,2))}${parseInt(yEndMesh.substring(4,5))}${parseInt(yEndMesh.substring(6,7))}`;
     y_end[1] = `${parseInt(yEndMesh.substring(2,4))}${parseInt(yEndMesh.substring(5,6))}${parseInt(yEndMesh.substring(7,8))}`;
 
-    console.log(x,x_end,y,y_end);
+
 
     function generatePointsWithinRectangle(vertexA, vertexB, vertexC, vertexD) {
         const points = [];
@@ -149,7 +148,7 @@ function convertMultiToMeshCode() {
     const vertexD = [y_end[0], y_end[1]]; // y_end
     
     const pointsWithinRectangle = generatePointsWithinRectangle(vertexA, vertexB, vertexC, vertexD);
-    console.log('item start here ');
+
     let count = 0;
     pointsWithinRectangle.forEach(function (item) {
 
@@ -190,11 +189,6 @@ function convertCenterToMeshCode() {
     if (centerLat.checkValidity() && centerLon.checkValidity() &&
     outerLat.checkValidity() && outerLon.checkValidity()) {
 
-    console.log(centerLat.value);
-    console.log(centerLon.value);
-    console.log(outerLat.value);
-    console.log(outerLon.value);
-
     let centerMesh = latlonToMesh(centerLat.value, centerLon.value);
     let outerMesh = latlonToMesh(outerLat.value, outerLon.value);
 
@@ -227,17 +221,13 @@ function convertCenterToMeshCode() {
     const center = [parseInt(centerOffsetx), parseInt(centerOffsety)];
     const pointOnCircumference = [parseInt(outerOffsetx), parseInt(outerOffsety)];
 
-    console.log(center);
-    console.log(pointOnCircumference);
     
     const pointsWithinCircle = generatePointsWithinCircle(center, pointOnCircumference);
 
-    console.log(pointsWithinCircle);
     let count = 0;
     pointsWithinCircle.forEach(function (item) {
 
         circleOffset[count] = `${parseInt((item[0].toString()).substring(0,2))}${parseInt((item[1].toString()).substring(0,2))}${parseInt((item[0].toString()).substring(2,3))}${parseInt((item[1].toString()).substring(2,3))}${parseInt((item[0].toString()).substring(3,4))}${parseInt((item[1].toString()).substring(3,4))}`;
-        console.log(circleOffset[count]);
         count++;
 
     });
@@ -283,6 +273,7 @@ $(document).ready(function() {
       $('#exportBtn').prop('disabled', false);
       let meshCode = $('#meshCodeResult').text();
       let locationType = $('#locationType').val();
+      let colorPicker = $('#colorPicker').val();
 
       let locationTypeValue = 0;
       if (locationType === 'landStable') locationTypeValue = 2;
@@ -295,14 +286,20 @@ $(document).ready(function() {
       // Append a new row to the table
       $('#meshCodeList').append(`
         <tr>
-          <td class='col-6 text-center style='background-color: #ecfff3''>${meshCode}</td>
-          <td class='col-6 text-center  ${locationType}'>${locationTypeValue}</td>
+          <td class='col-4 text-center'>${meshCode}</td>
+          <td class='col-4 text-center'>${locationType}</td>
+          <td class='col-4 text-center ${locationType}'>${colorPicker}</td>
         </tr>
       `);
 
+      $(`.${locationType}`).css({
+        'background-color': colorPicker,
+        'color': colorPicker 
+      });
+
       // Clear input fields and mesh code result
       $('#latitude, #longitude').val('');
-    //   $('#meshCodeResult').text('');
+      $('#meshCodeResult').text('');
     });
 
     // Add multiple mesh code to csv
@@ -313,6 +310,7 @@ $(document).ready(function() {
         let meshCodesTextarea = $('#multiMeshCodeResult').text();
         let locationType = $('#multLocationType').val();
         let meshCodes = meshCodesTextarea.split('\n');
+        let colorPicker = $('#colorPickerMultiLocation').val();
 
         let locationTypeValue = 0;
         if (locationType === 'landStable') locationTypeValue = 2;
@@ -323,12 +321,19 @@ $(document).ready(function() {
         meshCodes.forEach(function (meshCode) {
             // Skip empty mesh codes
             if (meshCode.trim() !== '') {
+                // Append a new row to the table
                 $('#meshCodeList').append(`
                     <tr>
-                        <td class='col-6 text-center' style='background-color: #ecfff3'>${meshCode}</td>
-                        <td class='col-6 text-center ${locationType}'>${locationTypeValue}</td>
+                    <td class='col-4 text-center'>${meshCode}</td>
+                    <td class='col-4 text-center'>${locationType}</td>
+                    <td class='col-4 text-center ${locationType}'>${colorPicker}</td>
                     </tr>
                 `);
+
+                $(`.${locationType}`).css({
+                    'background-color': colorPicker,
+                    'color': colorPicker 
+                });
             }
         });
     });
@@ -341,6 +346,7 @@ $(document).ready(function() {
         let centerMeshCodeResult = $('#centerMeshCodeResult').text();
         let locationType = $('#centerLocationType').val();
         let meshCodes = centerMeshCodeResult.split('\n');
+        let colorPicker = $('#colorPickerCenterLocation').val();
 
         let locationTypeValue = 0;
         if (locationType === 'landStable') locationTypeValue = 2;
@@ -351,12 +357,19 @@ $(document).ready(function() {
         meshCodes.forEach(function (meshCode) {
             // Skip empty mesh codes
             if (meshCode.trim() !== '') {
+                // Append a new row to the table
                 $('#meshCodeList').append(`
                     <tr>
-                        <td class='col-6 text-center' style='background-color: #ecfff3'>${meshCode}</td>
-                        <td class='col-6 text-center ${locationType}'>${locationTypeValue}</td>
+                    <td class='col-4 text-center'>${meshCode}</td>
+                    <td class='col-4 text-center'>${locationType}</td>
+                    <td class='col-4 text-center ${locationType}'>${colorPicker}</td>
                     </tr>
                 `);
+
+                $(`.${locationType}`).css({
+                    'background-color': colorPicker,
+                    'color': colorPicker 
+                });
             }
         });
     });
@@ -368,36 +381,31 @@ $(document).ready(function() {
 
     function exportToCSV() {
         // Prepare CSV content
-        let csvContent = 'data:text/csv;charset=utf-8,';
+        let csvContent = '' ;
         
         // Iterate through table rows and append data to CSV content
         $('#meshCodeList tr').each(function(index, row) {
-            console.log('click');
-            console.log(index);
-            console.log(row);
   
             const columns = $(row).find('td');
-            const locationType = columns.eq(1).text();
+            const locationType = columns.eq(2).text();
             const meshCode = columns.eq(0).text();
-            console.log(columns.eq(0).text());
-            console.log(columns.eq(1).text());
-            console.log(columns.eq(2).text());
-            console.log(columns.eq(3).text());
-            console.log(columns.eq(4).text());
-
-            console.log(`Location Type: ${locationType}, Mesh Code: ${meshCode}`);
 
             csvContent += `${meshCode},${locationType}\n`;
-
         });
 
-        // Create a data URI and trigger a download
-        const encodedURI = encodeURI(csvContent);
+        // Create a data URI for the CSV content
+        const csvDataUri = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
+
+        // Create a download link with the download attribute
         const link = document.createElement('a');
-        link.setAttribute('href', encodedURI);
+        link.href = csvDataUri;
         link.setAttribute('download', 'mesh_code_data.csv');
+
+        // Append the link to the document and trigger a click event
         document.body.appendChild(link);
         link.click();
+
+        // Remove the link from the document
         document.body.removeChild(link);
       }
 
@@ -407,7 +415,6 @@ $(document).ready(function() {
 function copy() {
 
     let copyText = document.getElementById("copy-text");
-    console.log(copyText);
     let copySuccess = document.getElementById("copied-success");
     copyText.select();
     copyText.setSelectionRange(0, 99999); 

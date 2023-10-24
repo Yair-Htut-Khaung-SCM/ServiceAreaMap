@@ -265,44 +265,9 @@ a.active-nav-a {
 	color: rgb(255, 255, 255);
 }
 
-.Map_Legend {
-  width: 100%;
-  padding-left: 10px;
-}
 
-.Map_Legend > ul > li {
-  list-style-type: none;
-  font-size: 13px;
-  margin-bottom: 10px;
-}
 
-.Map_Legend_Item {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
 
-.Map_Legend_Color {
-  width: 20px;
-  height: 20px;
-  background-color: rgba(255, 0, 0, 0.4);
-  border: solid 1px rgb(64, 64, 64);
-}
-
-.Map_Legend_Color--type2 {
-  background-color: rgba(255, 165, 0, 0.4);
-  border: solid 1px rgb(64, 64, 64);
-}
-
-.Map_Legend_Color--type3 {
-  background-color: rgba(133, 43, 230, 0.5);
-  border: solid 1px rgb(64, 64, 64);
-}
-
-.Map_Legend_Color--type4 {
-  background-color: rgba(100, 112, 255, 0.5);
-  border: solid 1px rgb(64, 64, 64);
-}
 
 .Map_Legend_Label {
   padding-left: .8em;

@@ -136,25 +136,7 @@
                     </div>
                 </div>
             </div>
-            <div class="Map_Legend">
-                <ul>
-                    <li>
-                        <div class="Map_Legend_Item">
-                            <div class="Map_Legend_Color"></div>
-                            <div class="Map_Legend_Label">Near the reception limit</div>
 
-                            <div id="legend2" class="Map_Legend_Color Map_Legend_Color--type2"></div>
-                            <div class="Map_Legend_Label">Stable reception</div>
-
-                            <div id="legend4" class="Map_Legend_Color Map_Legend_Color--type4"></div>
-                            <div class="Map_Legend_Label">Stable reception (sea)</div>
-
-                            <div id="legend3" class="Map_Legend_Color Map_Legend_Color--type3"></div>
-                            <div class="Map_Legend_Label">Reception possible (sea)</div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
         </div>
 
     </div>

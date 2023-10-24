@@ -63,14 +63,15 @@
                                   <input type="text" class="form-control" id="longitude" placeholder="sample 96.164" required pattern="\d{1,2}\.\d{3}">
                                   <div class="invalid-feedback">Please enter a valid longitude (e.g., 96.164).</div>
                               </div>
-                              <div class="form-group col-9">
-                                  <label for="locationType" class="col-6">Location Type:</label>
-                                  <select class="form-select" id="locationType">
+                              <div class="form-group col-10">
+                                  <label for="locationType" class="col-5">Location Type:</label>
+                                  <select class="form-select me-1 col-1" id="locationType">
                                     <option value="landStable">Land Stable</option>
                                     <option value="landNearLimit">Land Near Limit</option>
                                     <option value="seaStable">Sea Stable</option>
                                     <option value="seaNearLimit">Sea Near Limit</option>
                                   </select>
+                                    <input type="color" class="col-2 border-0" id="colorPicker" value="#ff0000">
                                 </div>
                                 <div class="text-danger" id="invalid-onepoint"></div>
                               <button type="button" class="btn btn-primary mt-5" onclick="convertToMeshCode()">Convert to Mesh Code  <i class="fa fa-arrow-right"></i></button>
@@ -125,12 +126,13 @@
                               </div>
                               <div class="form-group col-8">
                                   <label for="locationType" class="multi-label col-5">Location Type:</label>
-                                  <select class="form-select multi-label" id="multLocationType">
+                                  <select class="form-select multi-label me-1" id="multLocationType">
                                     <option value="landStable">Land Stable</option>
                                     <option value="landNearLimit">Land Near Limit</option>
                                     <option value="seaStable">Sea Stable</option>
                                     <option value="seaNearLimit">Sea Near Limit</option>
                                   </select>
+                                  <input type="color" class="col-2 border-0" id="colorPickerMultiLocation" value="#ff0000">
                                 </div>
                                 <div class="text-danger" id='invalid-mulpoint'></div>
                               <button type="button" class="btn btn-primary mt-5" onclick="convertMultiToMeshCode()">Convert to Mesh Code  <i class="fa fa-arrow-right"></i></button>
@@ -172,13 +174,14 @@
                                   <div class="invalid-feedback">Please enter a valid latitude (e.g., 16.765).</div>
                               </div>
                               <div class="form-group col-8">
-                                  <label for="locationType" class="multi-label col-6">Location Type:</label>
+                                  <label for="locationType" class="multi-label col-5">Location Type:</label>
                                   <select class="form-select multi-label" id="centerLocationType" style="margin-left:-10px">
                                     <option value="landStable">Land Stable</option>
                                     <option value="landNearLimit">Land Near Limit</option>
                                     <option value="seaStable">Sea Stable</option>
                                     <option value="seaNearLimit">Sea Near Limit</option>
                                   </select>
+                                  <input type="color" class="col-2 border-0" id="colorPickerCenterLocation" value="#ff0000">
                                 </div>
                                 <div class="text-danger" id='invalid-centerpoint'></div>
                               <button type="button" class="btn mt-5" onclick="convertCenterToMeshCode()">Convert to Mesh Code <i class="fa fa-arrow-right"></i></button>
@@ -213,6 +216,7 @@
                   <ul class="d-flex table-header">
                       <li>Mesh Code</li>
                       <li>Location Type</li>
+                      <li>Service Color</li>
                   </ul>
                   <div style="overflow-y:scroll; height:300px;">
                       <table class="table">

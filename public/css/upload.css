@@ -232,25 +232,7 @@ position: relative;
   margin-bottom: 0px;
 }
 
-.landStable {
-  background-color: rgba(255, 187, 61, 0.5) !important;
-  color: #fff !important;
-}
 
-.landNearLimit {
-  background-color: rgba(255, 0, 0, 0.5) !important;
-  color: #fff !important;
-}
-
-.seaStable {
-  background-color: rgba(133, 43, 230, 0.5) !important;
-  color: #fff !important;
-}
-
-.seaNearLimit {
-  background-color: rgba(100, 112, 255, 0.5) !important;
-  color: #fff !important;
-}
 
 /* center outer point input  */
 .center-outer > input {

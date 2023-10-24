@@ -365,7 +365,7 @@ class Map
                                 "color" => $tmpPoint["color"]
                             ]
                         );
-                        // var_dump($tmpPoint["x"], $tmpPoint["y"]);
+
                         $levelData = $this->addPointsByZoomLevel(
                             $levelData,
                             $zoom_level,
@@ -379,7 +379,7 @@ class Map
                                 "color" => $tmpPoint["color"]
                             ]
                         );
-                        // var_dump($tmpPoint["x"], $tmpPoint["y"]);
+
                         $levelData = $this->addPointsByZoomLevel(
                             $levelData,
                             $zoom_level,
@@ -621,19 +621,6 @@ class Map
         }
 
         $im = imagecreatetruecolor($mesh_code_size, $mesh_code_size);
-        // land's color
-        $class_colors = [
-            1 => imagecolorallocatealpha($im, 255, 0, 0, 0),
-            2 => imagecolorallocatealpha($im, 255, 187, 61, 0),
-            3 => imagecolorallocatealpha($im, 133, 43, 230, 0),
-            4 => imagecolorallocatealpha($im, 100, 112, 255, 0),
-        ];
-        // sea color
-        $class_colors_sea = [
-            3 => imagecolorallocatealpha($im, 118, 74, 241, 0),
-            4 => imagecolorallocatealpha($im, 118, 74, 241, 0),
-        ];
-
 
         for ($zoom_level = $min_zoom_level; $zoom_level <= $max_zoom_level; $zoom_level++) {
             $opacity = 0.379;
@@ -644,14 +631,10 @@ class Map
                     $tile = imagecreatetruecolor($base_tile_size, $base_tile_size);
                     $tile_back = imagecolorallocatealpha($tile, 255, 255, 255, 127);
                     imagefill($tile, 0, 0, $tile_back);
-
-                    // sea
-                    $sea_tile = imagecreatetruecolor($base_tile_size, $base_tile_size);
-                    $sea_tile_back = imagecolorallocatealpha($sea_tile, 255, 255, 255, 127);
-                    imagefill($sea_tile, 0, 0, $sea_tile_back);
                     foreach ($tileY as $index => $point) {
-                        // land rectangle png
-                        if($point["color"] == 1 || $point["color"] == 2 || $point["color"] == 3 || $point["color"] == 4){
+
+                            // Convert Hex to RGB
+                            list($r, $g, $b) = array_map('hexdec', str_split(ltrim($point["color"], '#'), 2));
 
                             imagefilledrectangle(
                                 $tile,
@@ -659,21 +642,9 @@ class Map
                                 $point["y"],
                                 $point["x_end"],
                                 $point["y_end"],
-                                $class_colors[$point["color"]]
+                                imagecolorallocatealpha($im, $r, $g, $b, 0)
                             );
 
-                        }
-                        // sea rectangle png
-                        if($point["color"] == 3 || $point["color"] == 4){
-                            imagefilledrectangle(
-                                $sea_tile,
-                                $point["x"],
-                                $point["y"],
-                                $point["x_end"],
-                                $point["y_end"],
-                                $class_colors_sea[$point["color"]]
-                            );
-                        }
                     }
                     imagealphablending($tile, false);
                     imagesavealpha($tile, true);
@@ -688,20 +659,6 @@ class Map
                     // land png upload to s3 bucket
                     Storage::disk('public')->put(config('application.map.tile_images_path') .
                         "${zoom_level}/${lat}/${lng}.png", $tile_image_data, 'public');
-
-
-                    imagealphablending($sea_tile, false);
-                    imagesavealpha($sea_tile, true);
-                    imagefilter($sea_tile, IMG_FILTER_COLORIZE, 0, 0, 0, 127 * $transparency);
-                    ob_start();
-                    imagepng($sea_tile);
-                    $tile_image_data_sea = ob_get_contents();
-                    ob_get_clean();
-
-                    // sea png upload to s3 bucket
-                    Storage::disk('public')->put(config('application.map.sea_tile_images_path') .
-                        "${zoom_level}/${lat}/${lng}.png", $tile_image_data_sea, 'public');
-
 
                 }
             }
