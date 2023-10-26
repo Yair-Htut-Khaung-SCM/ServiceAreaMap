@@ -7,7 +7,7 @@ let secretBaseUrl = '';
 secretBaseUrl = API_PROTOCOL + '//' + API_HOST;
 const CSV_PATH = '/map/mesh-list.json';
 const GET_CSV_URL = secretBaseUrl + CSV_PATH;
-const GOOGLE_MAP_API_KEY = 'AIzaSyCLWMCSlaM3ZNyC4lswtoqfdGDnTZ5wv2Q';
+const GOOGLE_MAP_API_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxx';
 var paramMinZoom = 12;
 
 const SearchType = {

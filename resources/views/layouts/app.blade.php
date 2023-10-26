@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="{{ asset('css/upload.css') }}">
     <?php
     if (getenv('APP_ENV') === 'local') {
-        $_GOOGLE_MAP_API_KEY = 'AIzaSyCLWMCSlaM3ZNyC4lswtoqfdGDnTZ5wv2Q';
+        $_GOOGLE_MAP_API_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxx';
     } else {
-        $_GOOGLE_MAP_API_KEY = 'AIzaSyAjft-0tqg2e_oHJaQO-0C31PguYRF4V9g';
+        $_GOOGLE_MAP_API_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxx';
     }
     ?>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=<?php echo $_GOOGLE_MAP_API_KEY; ?>&v=weekly" defer ></script>
