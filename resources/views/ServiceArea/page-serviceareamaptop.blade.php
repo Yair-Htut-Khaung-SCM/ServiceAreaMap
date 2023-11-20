@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ServiceArea_Myanmar</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
     <div class="ServiceArea_Top_Main">
 
         <img id="ServiceArea_Myanmar" src="img/serviceareamap/ServiceArea_Myanmar.png" alt="" />
@@ -20,11 +13,7 @@
                     <div class="ServiceArea_Group_Name">Yangon</div>
                     <hr class="ServiceArea_Group_Border">
                     <div class="ServiceArea_Prefectures">
-                        <button>Kamaryut</button>
-                        <button>Kyauktada</button>
-                        <button>Kyimyindine</button><br>
-                        <button>Sangyoung</button>
-                        <button>Seikkan</button>
+                        <button>Kyimyindine</button>
                         <button>Botahtaung</button>
                     </div>
                 </li>
@@ -43,7 +32,7 @@
                     <div class="ServiceArea_Group_Name">Shan</div>
                     <hr class="ServiceArea_Group_Border">
                     <div class="ServiceArea_Prefectures">
-                        <button>Keng Tung</button>
+                        <button>Keng-Tung</button>
                         <button>Lashio</button>
                         <button>Taunggyi</button><br>
                     </div>
@@ -54,7 +43,6 @@
                     <hr class="ServiceArea_Group_Border">
                     <div class="ServiceArea_Prefectures">
                         <button>Loikaw</button>
-                        <button>Bawlakhe</button>
                         <button>Mawchi</button><br>
                     </div>
                 </li>
@@ -73,11 +61,9 @@
                     <hr class="ServiceArea_Group_Border">
                     <div class="ServiceArea_Prefectures">
                         <button>Sagaing</button>
-                        <button>Shwebo</button>
-                        <button>Kale</button><br>
                         <button>Chaung-U</button>
                         <button>Homalin</button>
-                        <button>Banmauk</button>
+  
                     </div>
                 </li>
 
@@ -95,9 +81,8 @@
                     <div class="ServiceArea_Group_Name">Magway</div>
                     <hr class="ServiceArea_Group_Border">
                     <div class="ServiceArea_Prefectures">
-                        <button>Natmauk</button>
                         <button>Minhla</button>
-                        <button>Pauk</button><br>
+                        <button>Pauk</button>
                         <button>Minbu</button>
                     </div>
                 </li>
@@ -106,7 +91,7 @@
                     <div class="ServiceArea_Group_Name">Rakhine</div>
                     <hr class="ServiceArea_Group_Border">
                     <div class="ServiceArea_Prefectures">
-                        <button>Rakhine</button>
+                        <button>Sittwe</button>
                         <button>Gwa</button>
                     </div>
                 </li>
@@ -117,8 +102,7 @@
                     <div class="ServiceArea_Prefectures">
                         <button>Pathein</button>
                         <button>Labutta</button>
-                        <button>Pyapon</button><br>
-                        <button>Pantanaw</button>
+                        <button>Pyapon</button>
                     </div>
                 </li>
 
@@ -129,7 +113,6 @@
                         <button>Bago</button>
                         <button>Taungoo</button>
                         <button>Pyay</button><br>
-                        <button>Thayarwady </button>
                     </div>
                 </li>
 
@@ -139,8 +122,7 @@
                     <div class="ServiceArea_Prefectures">
                         <button>Mawlamyaing</button>
                         <button>Myawaddy</button>
-                        <button>Mudon</button><br>
-                        <button>Ye</button>
+                        <button>Mudon</button>
                     </div>
                 </li>
 
@@ -168,7 +150,4 @@
         </div>
 
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{ asset('js/serviceareamaptop.js') }}"></script>
-</body>
-</html>
+@endsection
